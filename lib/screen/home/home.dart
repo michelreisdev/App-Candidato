@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../modal/class.politico.dart';
+import 'components/img_politico.dart';
 
 class Home extends StatelessWidget {
   
@@ -28,20 +29,7 @@ class Home extends StatelessWidget {
                     height: 100.0,
                     child: Row(
                       children: [
-                        Container(
-                          height: 100.0,
-                          width: 70.0,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(5),
-                              topLeft: Radius.circular(5)
-                            ),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(politico.parlamentars[index].urlFoto)
-                            )
-                          ),
-                        ),
+                          ImgPolitico(politico.parlamentars[index].urlFoto),
                           SizedBox(
                           height: 100,
                           child: Padding(
@@ -57,12 +45,7 @@ class Home extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    Text('${politico.parlamentars[index].siglaPartido}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 165, 160, 160))),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text('${politico.parlamentars[index].siglaUf}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 165, 160, 160))),
+                                    Text("${politico.parlamentars[index].siglaPartido} - ${politico.parlamentars[index].siglaUf}", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 165, 160, 160))),
                                   ],
                                 ),
                                  

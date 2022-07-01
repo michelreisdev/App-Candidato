@@ -1,20 +1,28 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../modal/class.api_parlamentar.dart';
 import '../modal/class.politico.dart';
 
 class Home extends StatelessWidget {
   
   const Home({Key? key}) : super(key: key);
 
+  
  
   
   @override
   Widget build(BuildContext context) {
 
-    final Politico politico = Politico();
+    Politico politico = Politico();
 
+    List<Parlamentar> parlamentars = [];
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
+      body: Consumer<Politico>(builder: (_,politico,___){
+        inspect(politico.parlamentars);
+        return Column(
         children: [
           const Padding(
             padding: EdgeInsets.all(16.0),
@@ -28,12 +36,14 @@ class Home extends StatelessWidget {
                       MaterialStateProperty.all<Color>(Colors.blue),
                 ),
                 onPressed: () async {
-                   await politico.getParlamento();
+  
+                  
                 },
                 child: const Text('Buscar'),
               ))
         ],
-      ),
+      );
+      },),
     );
   }
 }

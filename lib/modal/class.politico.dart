@@ -5,11 +5,17 @@ import 'class.api_parlamentar.dart';
 import 'package:http/http.dart' as http;
 
 class Politico extends ChangeNotifier {
-  List<Parlamentar> parlamentars = [];
+
+  List<dynamic> parlamentars = [];
+
+  Politico(){
+    this.getParlamento();
+   
+  }
 
   
 
-  Future<void> getParlamento() async {
+  Future<dynamic> getParlamento() async {
     var headers = {'Accept': 'application/json'};
     var request = http.Request(
         'GET',
@@ -22,20 +28,16 @@ class Politico extends ChangeNotifier {
     var response = await http.Response.fromStream(streamedResponse);
 
     if (response.statusCode == 200) {
-      /* var jsons =   json.decode( response.body.toString() );
-      var parlamentarress = jsons['ListaParlamentarEmExercicio']['Parlamentares']['Parlamentar']; */
-       //inspect(parlamentarress[0]['IdentificacaoParlamentar']);
-      
+      var jsons =   jsonDecode( response.body.toString() );
       try{
-    
+        parlamentars = jsons['ListaParlamentarEmExercicio']['Parlamentares']['Parlamentar'].map((job) => Parlamentar.fromJson(job)).toList();
       }catch(e){
         inspect(e);
       }
      
-     
-      
     } else {
        inspect(response.reasonPhrase);
     }
+     notifyListeners();
   }
 }

@@ -6,7 +6,7 @@ class Parlamentar {
     required this.NomeCompletoParlamentar,
   });
 
-  factory Parlamentar.fromJson(Map<String, dynamic> json) {
+  factory Parlamentar.fromJson(Map json) {
     return Parlamentar(
       NomeCompletoParlamentar: json['IdentificacaoParlamentar']['NomeCompletoParlamentar'] as String,
     );

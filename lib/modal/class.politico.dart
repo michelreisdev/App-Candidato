@@ -1,5 +1,4 @@
 import 'dart:convert' show jsonDecode, utf8;
-import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'class.api_parlamentar.dart';
 import 'package:http/http.dart' as http;
@@ -18,7 +17,7 @@ class Politico extends ChangeNotifier {
     var request = http.Request(
         'GET',
         Uri.parse(
-            'https://legis.senado.leg.br/dadosabertos/senador/lista/atual'));
+            'https://dadosabertos.camara.leg.br/api/v2/deputados?itens=25'));
 
     request.headers.addAll(headers);
 
@@ -28,14 +27,26 @@ class Politico extends ChangeNotifier {
     if (response.statusCode == 200) {
       var jsons = jsonDecode(utf8.decode(response.bodyBytes));
       try{
-        parlamentars = jsons['ListaParlamentarEmExercicio']['Parlamentares']['Parlamentar'].map((job) => Parlamentar.fromJson(job)).toList();
+        parlamentars = jsons['dados'].map((job) => Parlamentar.fromJson(job)).toList();
       }catch(e){
-        inspect(e);
+        print('erro');
       }
      
     } else {
-       inspect(response.reasonPhrase);
+       print(response.reasonPhrase);
     }
      notifyListeners();
+  }
+
+
+  getParmentarSanchaer()  {
+    List parlamentar = parlamentars.where(
+      (item){
+        return item.SiglaPartidoParlamentar == 'PT';
+      }
+     ).toList();
+
+     parlamentars = parlamentar;
+    notifyListeners();
   }
 }

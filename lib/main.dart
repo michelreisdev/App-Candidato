@@ -1,4 +1,4 @@
-import 'package:app_politic/screen/home.dart';
+import 'package:app_politic/screen/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,11 +20,25 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: (setting){
+          switch(setting.name){
+            default:
+              return MaterialPageRoute(
+                builder: (_) => const Home(),
+              );
+          }
+        },
+        title: 'Candidato',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+           primaryColor: Color.fromARGB(255, 15, 15, 15),
+           scaffoldBackgroundColor: Color.fromARGB(255, 24, 25, 26),
+           appBarTheme: const AppBarTheme(
+            elevation: 0,
+            color: Color.fromARGB(255, 51, 53, 54),
+          ),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: const Home(),
       ),
     );
   }

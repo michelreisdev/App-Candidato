@@ -1,20 +1,23 @@
 class Parlamentar {
-  final String NomeCompletoParlamentar;
-  final String UrlFotoParlamentar;
-  final String SiglaPartidoParlamentar;
+  final String nome;
+  final String urlFoto;
+  final String siglaPartido;
+  final String siglaUf;
 
 
   const Parlamentar({
-    required this.NomeCompletoParlamentar,
-    required this.UrlFotoParlamentar,
-    required this.SiglaPartidoParlamentar,
+    required this.nome,
+    required this.urlFoto,
+    required this.siglaPartido,
+    required this.siglaUf,
   });
 
   factory Parlamentar.fromJson(Map json) {
     return Parlamentar(
-      NomeCompletoParlamentar: json['IdentificacaoParlamentar']['NomeCompletoParlamentar'] as String,
-      UrlFotoParlamentar: json['IdentificacaoParlamentar']['UrlFotoParlamentar'] as String,
-      SiglaPartidoParlamentar: json['IdentificacaoParlamentar']['SiglaPartidoParlamentar'] as String,
+      nome: json['nome'] as String,
+      urlFoto: json['urlFoto'] as String,
+      siglaPartido: json['siglaPartido']as String,
+      siglaUf: json['siglaUf']as String,
     );
   }
 }

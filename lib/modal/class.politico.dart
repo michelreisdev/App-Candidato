@@ -7,6 +7,14 @@ import 'package:http/http.dart' as http;
 class Politico extends ChangeNotifier {
 
   List<dynamic> parlamentars = [];
+  List<dynamic> parlamentarsFilter = [];
+  String _search = '';
+
+  String get search => _search;
+  set search(String value){
+    _search = value;
+    notifyListeners();
+  }
 
   Politico(){
     getParlamento();
@@ -27,7 +35,8 @@ class Politico extends ChangeNotifier {
     if (response.statusCode == 200) {
       var jsons = jsonDecode(utf8.decode(response.bodyBytes));
       try{
-        parlamentars = jsons['dados'].map((job) => Parlamentar.fromJson(job)).toList();
+          parlamentars = jsons['dados'].map((job) => Parlamentar.fromJson(job)).toList();
+          parlamentarsFilter.addAll(parlamentars);
       }catch(e){
         print('erro');
       }
@@ -35,18 +44,21 @@ class Politico extends ChangeNotifier {
     } else {
        print(response.reasonPhrase);
     }
+    
      notifyListeners();
   }
 
 
-  getParmentarSanchaer()  {
-    List parlamentar = parlamentars.where(
-      (item){
-        return item.SiglaPartidoParlamentar == 'PT';
-      }
-     ).toList();
 
-     parlamentars = parlamentar;
-    notifyListeners();
+  List<dynamic>ParmentarSearchs(){
+    parlamentarsFilter = [];
+    if(search.isEmpty){
+      parlamentarsFilter.addAll(parlamentars);
+    }else{
+      parlamentarsFilter.addAll( parlamentars.where(
+            (item)=> item.nome.toLowerCase().contains(search.toLowerCase())
+      ));
+    }
+    return parlamentarsFilter;
   }
 }

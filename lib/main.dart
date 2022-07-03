@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
               );
           }
         },
-        title: 'Candidato',
+        title: 'Candidato ',
         theme: ThemeData(
-           primaryColor: Color.fromARGB(255, 15, 15, 15),
-           scaffoldBackgroundColor: Color.fromARGB(255, 24, 25, 26),
+           primaryColor: const Color.fromARGB(255, 15, 15, 15),
+           scaffoldBackgroundColor: const Color.fromARGB(255, 24, 25, 26),
            appBarTheme: const AppBarTheme(
             elevation: 0,
             color: Color.fromARGB(255, 51, 53, 54),

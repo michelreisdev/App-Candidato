@@ -31,13 +31,14 @@ class MyApp extends StatelessWidget {
         },
         title: 'Candidato ',
         theme: ThemeData(
-           primaryColor: const Color.fromARGB(255, 15, 15, 15),
-           scaffoldBackgroundColor: const Color.fromARGB(255, 24, 25, 26),
-           appBarTheme: const AppBarTheme(
-            elevation: 0,
-            color: Color.fromARGB(255, 51, 53, 54),
+          brightness: Brightness.dark,
+          primaryColor: Colors.lightBlue[800],
+          fontFamily: 'Georgia',
+          textTheme: const TextTheme(
+            headline1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            headline6: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            bodyText2: TextStyle(fontSize: 18.0, fontFamily: 'Hind', fontWeight: FontWeight.bold),
           ),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
       ),
     );

@@ -19,6 +19,10 @@ class ImgPolitico extends StatelessWidget {
           ),
         ),
         child: ImageNetwork(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(6),
+              bottomLeft: Radius.circular(5),
+            ),
             image: url.toString(),
             width: 100,
             height: 80,

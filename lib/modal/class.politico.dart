@@ -1,5 +1,7 @@
 import 'dart:convert' show jsonDecode, utf8;
+import 'dart:developer';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'class.api_parlamentar.dart';
 import 'package:http/http.dart' as http;
 
@@ -38,7 +40,8 @@ class Politico extends ChangeNotifier {
           parlamentars = jsons['dados'].map((job) => Parlamentar.fromJson(job)).toList();
           parlamentarsFilter.addAll(parlamentars);
       }catch(e){
-        print('erro');
+
+         print('erro');
       }
      
     } else {

@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      drawer: Drawer(),
       appBar: AppBar(
         title: Consumer<Politico>(builder: (_,politico,__){
             if(politico.search.isEmpty){
@@ -92,6 +93,9 @@ class Home extends StatelessWidget {
                                   children: [
                                     Text('${politicos[index].nome}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                                   ],
+                                ),
+                                const SizedBox(
+                                  height: 8,
                                 ),
                                 Row(
                                   children: [

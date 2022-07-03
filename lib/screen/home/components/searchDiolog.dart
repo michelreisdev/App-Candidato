@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SearchDiolog extends StatelessWidget {
-  const SearchDiolog({Key? key}) : super(key: key);
+ 
+  const SearchDiolog(this.initialValueParame);
+  final initialValueParame;
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +14,7 @@ class SearchDiolog extends StatelessWidget {
         right: 4,
         child: Card(
             child: TextFormField(
+              initialValue: initialValueParame,
               textInputAction: TextInputAction.search,
               autofocus: true,
               decoration: InputDecoration( 

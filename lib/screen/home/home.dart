@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
                     onTap: ()async{
                       final showdialog = await showDialog<String>(
                       context: context, 
-                      builder: (_)=> const SearchDiolog());
+                      builder: (_)=> SearchDiolog(politico.search.toString()));
 
                       if(showdialog != null){
                         politico.search = showdialog;
@@ -45,7 +45,7 @@ class Home extends StatelessWidget {
                 onPressed: () async {
                   final showdialog = await showDialog<String>(
                     context: context, 
-                    builder: (_)=> const SearchDiolog());
+                    builder: (_)=>  SearchDiolog(politico.search.toString()));
 
                   if(showdialog != null){
                     politico.search = showdialog;

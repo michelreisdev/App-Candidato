@@ -25,7 +25,7 @@ class Politico extends ChangeNotifier {
     var request = http.Request(
         'GET',
         Uri.parse(
-            'https://dadosabertos.camara.leg.br/api/v2/deputados?itens=25'));
+            'https://dadosabertos.camara.leg.br/api/v2/deputados'));
 
     request.headers.addAll(headers);
 

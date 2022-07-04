@@ -1,10 +1,12 @@
-import 'package:app_politic/screen/home/home.dart';
+import 'package:app_politic/screen/candidato/candidato.dart';
+import 'package:app_politic/screen/profile_candidato/profile_candidato.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'modal/class.politico.dart';
+import 'modal/class_candidato.dart';
+import 'services/api.politico.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -15,17 +17,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=> Politico(),
-        lazy: false,
+        ChangeNotifierProvider(create: (_) => Politico(),
+        lazy: true,
         )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: (setting){
           switch(setting.name){
+            case '/profile_candidado':
+                return MaterialPageRoute(
+                 builder: (_) => ProfileCandidato(
+                    setting.arguments as Parlamentar
+                 ),
+                );
             default:
               return MaterialPageRoute(
-                builder: (_) => const Home(),
+                builder: (_) => const Candidato(),
               );
           }
         },

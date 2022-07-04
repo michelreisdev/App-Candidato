@@ -3,6 +3,12 @@ class Parlamentar {
   final String urlFoto;
   final String siglaPartido;
   final String siglaUf;
+  final int id;
+  final String uri;
+  final String uriPartido;
+  final int idLegislatura;
+  final String email;
+
 
 
   const Parlamentar({
@@ -10,6 +16,11 @@ class Parlamentar {
     required this.urlFoto,
     required this.siglaPartido,
     required this.siglaUf,
+    required this.id,
+    required this.uri,
+    required this.uriPartido,
+    required this.idLegislatura,
+    required this.email,
   });
 
   factory Parlamentar.fromJson(Map json) {
@@ -18,6 +29,11 @@ class Parlamentar {
       urlFoto: json['urlFoto'] as String,
       siglaPartido: json['siglaPartido']as String,
       siglaUf: json['siglaUf']as String,
+      id: json['id']as int,
+      uri: json['uri']as String,
+      uriPartido: json['uriPartido']as String,
+      idLegislatura: json['idLegislatura']as int,
+      email: json['email']as String,
     );
   }
 }

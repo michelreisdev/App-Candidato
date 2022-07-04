@@ -1,18 +1,19 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../modal/class.politico.dart';
+import '../../services/api.politico.dart';
 import 'components/img_politico.dart';
 import 'components/searchDiolog.dart';
 
-class Home extends StatelessWidget {
+class Candidato extends StatelessWidget {
   
-  const Home({Key? key}) : super(key: key);
+  const Candidato({Key? key}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
+      
       drawer: Drawer(),
       appBar: AppBar(
         title: Consumer<Politico>(builder: (_,politico,__){
@@ -66,6 +67,7 @@ class Home extends StatelessWidget {
         ],
       ),
       body: Consumer<Politico>(builder: (_,politico,___) {
+     
         var politicos = politico.ParmentarSearchs();
         return ListView.builder(
             padding: const EdgeInsets.all(8),
@@ -73,7 +75,10 @@ class Home extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: (){
-                  print(politicos[index].nome);
+                  Navigator.of(context).pushNamed(
+                        '/profile_candidado', arguments: politicos[index]
+                      );
+                    
                 },
                 child: Card(
                   child: SizedBox(

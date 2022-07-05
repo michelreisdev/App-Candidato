@@ -1,6 +1,7 @@
 import 'package:app_politic/screen/candidato/candidato.dart';
 import 'package:app_politic/screen/profile_candidato/profile_candidato.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'modal/class_candidato.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.dark,
           primaryColor: Colors.lightBlue[800],
-          fontFamily: 'Georgia',
+          fontFamily: GoogleFonts.lato().fontFamily,
           textTheme: const TextTheme(
             headline1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             headline6: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),

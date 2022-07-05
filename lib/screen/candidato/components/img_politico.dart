@@ -26,7 +26,7 @@ class ImgPolitico extends StatelessWidget {
             image: url.toString(),
             width: 100,
             height: 80,
-            fitAndroidIos: BoxFit.cover,
+            fitAndroidIos: BoxFit.fill,
             fitWeb: BoxFitWeb.contain,
             
         ),

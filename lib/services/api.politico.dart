@@ -27,7 +27,6 @@ class Politico extends ChangeNotifier {
   String get loop => _loop;
   set loop(String value){
     _loop = value;
-    notifyListeners();
   }
 
   Politico(){
@@ -63,12 +62,13 @@ class Politico extends ChangeNotifier {
      notifyListeners();
   }
 
-  getCandidato() async {
+  getCandidato(parlamentarId) async {
     var headers = {'Accept': 'application/json'};
+    print('https://dadosabertos.camara.leg.br/api/v2/deputados/${parlamentarId}');
     var request = http.Request(
         'GET',
         Uri.parse(
-            'https://dadosabertos.camara.leg.br/api/v2/deputados/92346'));
+            'https://dadosabertos.camara.leg.br/api/v2/deputados/${parlamentarId}'));
 
     request.headers.addAll(headers);
 
@@ -80,18 +80,18 @@ class Politico extends ChangeNotifier {
   
       try{
           canditado = jsons;
-          loop = 'true';
-        notifyListeners();
+         
   
       }catch(e){
 
-        /* inspect(e); */
+        inspect(e);
       }
      
     } else {
        print(response.reasonPhrase);
     }
-    
+     loop = 'true';
+        notifyListeners();
   }
 
 

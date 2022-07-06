@@ -67,7 +67,7 @@ class Candidato extends StatelessWidget {
         ],
       ),
       body: Consumer<Politico>(builder: (_,politico,___) {
-     
+        politico.loop = 'false';
         var politicos = politico.ParmentarSearchs();
         return ListView.builder(
             padding: const EdgeInsets.all(8),

@@ -7,9 +7,12 @@ import 'package:image_network/image_network.dart';
 import 'imgProfile.dart';
 
 class SilverAppBarBackground extends StatelessWidget {
-  const SilverAppBarBackground(this.url);
+  const SilverAppBarBackground(this.url, this.nomeCivil, this.siglaPartido, this.siglaUf);
 
   final url;
+  final nomeCivil;
+  final siglaPartido;
+  final siglaUf;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class SilverAppBarBackground extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 100.0),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 140.0),
               child: ImgProfile(url),
             ),
           ),
@@ -49,9 +52,22 @@ class SilverAppBarBackground extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(width: 1, color: Colors.black),
-                  color: Color.fromARGB(100, 0, 0, 0),
+                  color: const Color.fromARGB(100, 0, 0, 0),
                 ),
-                child: Text("moeood dsoldkk dslds dlsd")),
+                child:  Padding(
+                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: SizedBox(
+                    height: 35,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text('${nomeCivil ??  '...' }', style: TextStyle(fontSize: 18),),
+                        Text('${siglaPartido  ??  '' } - ${siglaUf  ??  '' }', style: TextStyle(fontSize: 12),),
+                      ],
+                    ),
+                  ),
+                )),
             ),
           ),
         ),

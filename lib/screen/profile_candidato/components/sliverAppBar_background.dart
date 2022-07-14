@@ -44,9 +44,9 @@ class SilverAppBarBackground extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomCenter,
             child:  Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 100),
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 100),
               child: Container(
-                padding: const EdgeInsets.all(5),
+                padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(width: 1, color: Colors.black),
@@ -60,8 +60,8 @@ class SilverAppBarBackground extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('${nomeCivil ??  '...' }', style: const TextStyle(fontSize: 18),),
-                        Text('${siglaPartido  ??  '' } - ${siglaUf  ??  '' }', style: const TextStyle(fontSize: 12),),
+                        Text('${nomeCivil ??  '...' }', style: TextStyle(fontSize: 18),),
+                        Text('${siglaPartido  ??  '' } - ${siglaUf  ??  '' }', style: TextStyle(fontSize: 12),),
                       ],
                     ),
                   ),

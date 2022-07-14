@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../services/api.politico.dart';
@@ -17,6 +18,7 @@ class Candidato extends StatelessWidget {
       drawer: Drawer(),
       appBar: AppBar(
         title: Consumer<Politico>(builder: (_,politico,__){
+          print(politico.loop);
             if(politico.search.isEmpty){
               return const Text("Politico");
             }else{
@@ -67,7 +69,7 @@ class Candidato extends StatelessWidget {
         ],
       ),
       body: Consumer<Politico>(builder: (_,politico,___) {
-        politico.loop = 'false';
+      politico.canditado = '';
         var politicos = politico.ParmentarSearchs();
         return ListView.builder(
             padding: const EdgeInsets.all(8),

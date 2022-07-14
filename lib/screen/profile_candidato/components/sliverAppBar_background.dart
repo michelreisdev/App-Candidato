@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_network/image_network.dart';
 
@@ -46,9 +44,9 @@ class SilverAppBarBackground extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomCenter,
             child:  Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 100),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 100),
               child: Container(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(width: 1, color: Colors.black),
@@ -62,8 +60,8 @@ class SilverAppBarBackground extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('${nomeCivil ??  '...' }', style: TextStyle(fontSize: 18),),
-                        Text('${siglaPartido  ??  '' } - ${siglaUf  ??  '' }', style: TextStyle(fontSize: 12),),
+                        Text('${nomeCivil ??  '...' }', style: const TextStyle(fontSize: 18),),
+                        Text('${siglaPartido  ??  '' } - ${siglaUf  ??  '' }', style: const TextStyle(fontSize: 12),),
                       ],
                     ),
                   ),

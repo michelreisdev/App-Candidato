@@ -54,7 +54,8 @@ class SilverAppBarBackground extends StatelessWidget {
                 ),
                 child:  Padding(
                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: SizedBox(
+                  child: Container(
+                    constraints: BoxConstraints(minWidth: 120, maxHeight: 38),
                     height: 35,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

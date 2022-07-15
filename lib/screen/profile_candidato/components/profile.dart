@@ -23,7 +23,7 @@ class Profile extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               titlePadding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
               title: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.width / 13,
@@ -47,10 +47,10 @@ class Profile extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            hasScrollBody: false,
             child: Column(
-              children: const <Widget>[
+              children:  const <Widget>[
                 ExpansionTile(
+
                   title:  Text('Perfil'),
                   subtitle: Text('Dados sobre o politico'),
                   children: <Widget>[
